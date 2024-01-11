@@ -6,6 +6,15 @@ A project management system that allows users to create and manage projects alon
 
 A technical test was requested for the hiring process, and here are the prerequisites and the outcome.
 
+# Start
+
+## Run this technical test with a single command:
+```bash
+npm run start
+# or
+yarn start
+```
+
 # Prerequisites
 
 ## Test Description:
