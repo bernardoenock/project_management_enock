@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { ThemeMUI } from '@/style';
+import '../style/global.css'
 
 
 export const metadata: Metadata = {
