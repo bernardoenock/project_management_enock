@@ -29,7 +29,7 @@ You are required to develop a Project Management application that allows users t
 - [ ] Use Node.js to create the application.
 - [ ] Use a relational database (MySQL, PostgreSQL, etc.) to store projects and tasks.
 - [ ] Create RESTful endpoints for each operation described above.
-- [ ] Develop a frontend for the application using a technology of your choice.
+- [x] Develop a frontend for the application using a technology of your choice.
 - [ ] Integrate the frontend with the backend so that users can interact with the application through a user interface.
-- [ ] Use a version control tool to version your code and provide the repository link.
+- [x] Use a version control tool to version your code and provide the repository link.
 - [ ] Document the project, including the database structure, API routes, and clear instructions on how to set up and run the application.
