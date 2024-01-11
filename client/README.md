@@ -1,8 +1,20 @@
 This Client made with a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Started Local
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+npm run install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -16,11 +28,11 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Data
+## Data and Deploy view
 
 This project have a Server, if you wants just look check this link:
 
-If you wants to run local, run the Server too.
+If you wants to run local, run the [Server](../server) too.
 
 
 ## Tasks
