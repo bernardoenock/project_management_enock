@@ -1,11 +1,11 @@
 import express, { Application, Request, Response } from 'express';
 import { Pool } from 'pg';
 import { v4 as uuidv4 } from 'uuid';
+import cors from 'cors';
 
 const app: Application = express();
 const port = 4242;
 
-// Configuração do banco de dados
 const pool = new Pool({
   user: 'enock',
   host: 'localhost',
@@ -13,6 +13,8 @@ const pool = new Pool({
   password: '123interview',
   port: 5432,
 });
+
+app.use(cors());
 
 app.use(express.json());
 
