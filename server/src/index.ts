@@ -110,6 +110,18 @@ app.delete('/projects/:id', async (req: Request, res: Response) => {
   }
 });
 
+app.get('/projects/:projectId', async (req: Request, res: Response) => {
+  const { projectId } = req.params;
+
+  try {
+    const result = await pool.query('SELECT * FROM projects WHERE id=$1', [projectId]);
+    res.json(result.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'ERRO Ao listar as Tasks' });
+  }
+});
+
 // Rotas para tasks
 app.get('/projects/:projectId/tasks', async (req: Request, res: Response) => {
   const { projectId } = req.params;
