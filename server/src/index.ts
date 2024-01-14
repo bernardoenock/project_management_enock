@@ -57,7 +57,19 @@ createTables();
 app.get('/projects', async (req: Request, res: Response) => {
   try {
     const result = await pool.query('SELECT * FROM projects');
-    res.json(result.rows);
+    const projects = result.rows;
+
+    const data = await Promise.all(projects.map(async (project) => {
+      const tasksResult = await pool.query('SELECT * FROM tasks WHERE project_id=$1', [project.id]);
+      const tasks = tasksResult.rows;
+
+      return {
+        ...project,
+        tasks,
+      };
+    }));
+    
+    res.json(data);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'ERRO Ao listar os projetos.' });
@@ -115,7 +127,14 @@ app.get('/projects/:projectId', async (req: Request, res: Response) => {
 
   try {
     const result = await pool.query('SELECT * FROM projects WHERE id=$1', [projectId]);
-    res.json(result.rows);
+    const tasks = await pool.query('SELECT * FROM tasks WHERE project_id=$1', [projectId]);
+    const project = result.rows[0]
+    const data = {
+      ...project,
+      tasks: tasks.rows
+    }
+
+    res.json(data);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'ERRO Ao listar as Tasks' });
