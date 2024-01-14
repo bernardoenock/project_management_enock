@@ -4,7 +4,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "mono": "npm run build && npm run start"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
