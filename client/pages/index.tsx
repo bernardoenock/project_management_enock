@@ -1,12 +1,20 @@
-import Link from 'next/link'
+import LinkApp from '../components/atoms/LinkApp'
 import Layout from '../components/Layout'
+import { Typography, Button, Box, Container} from '@mui/material'
 
 const IndexPage = () => (
   <Layout title="Home | Project Management">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">About</Link>
-    </p>
+    <Container component="main" maxWidth="xs">
+      <Box sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}>
+        <Typography variant="h4">Gerencie seus projetos</Typography>
+        <Button color="inherit" variant='contained'><LinkApp href="/dashboard">Aqui</LinkApp></Button>
+      </Box>
+    </Container>
   </Layout>
 )
 
