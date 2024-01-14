@@ -1,8 +1,7 @@
 import { GetStaticProps } from 'next'
 import { getProjects } from '../../api/projects'
 import Layout from '../../components/Layout'
-import List from '../../components/List'
-import ListProjects from '../../components/ListProjects'
+import List from '../../components/ListProjects'
 
 type Props = {
   items: any[]
