@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import { ThemeMUI } from '../style'
 import Navigation from './organisms/Navigation'
+import LinkApp from './atoms/LinkApp'
 
 type Props = {
   children?: ReactNode
@@ -19,11 +20,11 @@ const Layout = ({ children, title = 'Project Management' }: Props) => (
       <Navigation />
     </header>
       <ThemeMUI>
-        {children}
+          {children}
       </ThemeMUI>
     <footer>
       <hr />
-      <span>Created by <a href="https://github.com/bernardoenock">Enock</a></span>
+      <span>Created by <LinkApp href="https://github.com/bernardoenock">Enock</LinkApp></span>
     </footer>
   </div>
 )
