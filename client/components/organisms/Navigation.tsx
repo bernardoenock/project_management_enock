@@ -11,37 +11,44 @@ const Navigation = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Box
-          sx={{
-            display: 'none',
-            '@media (min-width:600px)': {
-              display: 'flex',
-            },
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Box
+            sx={{
+              display: 'none',
+              '@media (min-width:600px)': {
+                display: 'flex',
+              },
 
-          }}
-        >
-          <Button color="inherit">
-            <LinkApp href="/" color='white'>Home</LinkApp>
-          </Button>
-          <Button color="inherit">
-            <LinkApp href="/dashboard" color='white'>Dashboard</LinkApp>
-          </Button>
-        </Box>
-        {id ? <CreateTask productId={id}/> : <CreateProject />}
-      </Toolbar>
-    </AppBar>
-  </Box>
+            }}
+          >
+            <Button color="inherit">
+              <LinkApp href="/" color='white'>Home</LinkApp>
+            </Button>
+            <Button color="inherit">
+              <LinkApp href="/dashboard" color='white'>Dashboard</LinkApp>
+            </Button>
+          </Box>
+          {id ? (
+            <>
+              <CreateTask productId={id as string} />
+              <Button color="inherit">
+                <LinkApp href="/dashboard" color='white'>Voltar</LinkApp>
+              </Button>
+            </>
+          ) : <CreateProject />}
+        </Toolbar>
+      </AppBar>
+    </Box>
   )
 }
 
