@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 
 import Layout from '../../components/Layout'
-import ListDetail from '../../components/ListDetail'
+import DetailProject from '../../components/DetailProject'
 import { getOneProject, getProjects } from '../../api/projects'
 
 type Props = {
@@ -26,11 +26,9 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
         item ? item.name.replace(/\s/g, '') : 'Project Detail'
       } | Project Management`}
     >
-      {item && (
         <>
-          <ListDetail item={item} />
+          <DetailProject />
         </>
-      )}
     </Layout>
   )
 }
@@ -38,12 +36,17 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
 export default StaticPropsDetail
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  try {
+    const projects = await getProjects();
+    const paths = projects.map((project) => ({
+      params: { id: project.id.toString() },
+    }));
 
-  const paths = (await getProjects()).map((project) => ({
-    params: { id: project.id.toString() },
-  }))
-
-  return { paths, fallback: false }
+    return { paths, fallback: true };
+  } catch (err) {
+    console.error("Error fetching projects:", err);
+    return { paths: [], fallback: false };
+  }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
