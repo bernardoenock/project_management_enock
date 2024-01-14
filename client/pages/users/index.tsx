@@ -1,10 +1,10 @@
 import { GetStaticProps } from 'next'
-import Link from 'next/link'
+import LinkApp from '../../components/atoms/LinkApp'
 
 import { User } from '../../interfaces'
 import { sampleUserData } from '../../data/sample-data'
 import Layout from '../../components/Layout'
-import List from '../../components/List'
+import List from '../../components/ListProjects'
 
 type Props = {
   items: User[]
@@ -15,7 +15,7 @@ const WithStaticProps = ({ items }: Props) => (
     <h1>Users List</h1>
     <List items={items} />
     <p>
-      <Link href="/">Go home</Link>
+      <LinkApp href="/">Go home</LinkApp>
     </p>
   </Layout>
 )
