@@ -23,10 +23,14 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
   return (
     <Layout
       title={`${
-        item ? item.name : 'Project Detail'
+        item ? item.name.replace(/\s/g, '') : 'Project Detail'
       } | Project Management`}
     >
-      {item && <ListDetail item={item} />}
+      {item && (
+        <>
+          <ListDetail item={item} />
+        </>
+      )}
     </Layout>
   )
 }
