@@ -37,18 +37,18 @@ If you wants to run local, run the [Server](../server) too.
 
 ## Tasks
 
-- [ ] Pages:
-  - [ ] Made Dashboard page ( where List all projects )
-  - [ ] Made Project page ( where List tasks of a project, Mark a task as completed, Add tasks to a project and Delete a task)
+- [x] Pages:
+  - [x] Made Dashboard page ( where List all projects )
+  - [x] Made Project page ( where List tasks of a project, Mark a task as completed, Add tasks to a project and Delete a task)
 
-- [ ] Modals:
-  - [ ] Create a new project
-  - [ ] Add tasks to a project
+- [x] Modals:
+  - [x] Create a new project
+  - [x] Add tasks to a project
 
-- [ ] Icons:
-  - [ ] Trash (Delete)
-  - [ ] Checkbox (Completed Task)
-  - [ ] Edit (Create and Add)
+- [x] Icons:
+  - [x] Trash (Delete)
+  - [x] Checkbox (Completed Task)
+  - [x] Edit (Create and Add)
 
 
 ## Extra Dark theme
