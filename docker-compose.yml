@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  app:
+  server:
     build:
       context: ./server
       dockerfile: Dockerfile
@@ -9,6 +9,19 @@ services:
       - "4242:4242"
     depends_on:
       - postgres
+    links:
+      - postgres
+  
+  # client:
+  #   build:
+  #     context: ./client
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - server
+  #   links:
+  #     - server
 
   postgres:
     image: postgres:latest
