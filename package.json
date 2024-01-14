@@ -1,0 +1,20 @@
+{
+  "name": "project_management_enock",
+  "version": "1.0.0",
+  "description": "A project management system that allows users to create and manage projects along with their respective tasks. This application is slightly more complex than a simple task list, as it involves the management of projects with multiple tasks associated with them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "docker compose up -d && sleep 60 && cd client && npm install && npm run mono"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bernardoenock/project_management_enock.git"
+  },
+  "author": "Enock",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bernardoenock/project_management_enock/issues"
+  },
+  "homepage": "https://github.com/bernardoenock/project_management_enock#readme"
+}
