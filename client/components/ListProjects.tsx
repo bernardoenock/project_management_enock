@@ -1,31 +1,26 @@
-import Link from "next/link";
-import { getProjects } from "../api/projects";
-import { useEffect, useState } from "react";
+import * as React from 'react'
+import CardProject from './molecules/CardProject'
 
-export default function ListProjects() {
-  const [projects, setProjects] = useState<any>([]);
+type Props = {
+  items: any[];
+};
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const projects = await getProjects();
-      setProjects(projects);
-    };
+const List = ({ items }: Props) => {
+  const [projects, setProjects] = React.useState(items);
 
-    fetchData();
-  }, []);
+  const handleDeleteProject = (projectId: string) => {
+    setProjects((prevProjects) => prevProjects.filter((project) => project.id !== projectId));
+  };
 
   return (
-    <>
-      <h1>Projects</h1>
-      <Link href="/">Home</Link>
-
-      {projects.map((project: any) => (
-        <div key={project.id}>
-          <Link href={`/projects/${project.id}`}>
-            {project.name}
-          </Link>
-        </div>
+    <ul style={{ margin: 0, padding: 0, display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+      {projects.map((project) => (
+        <li key={project.id} style={{listStyle: 'none', margin: 0, padding: 0}}>
+          <CardProject project={project} onDelete={handleDeleteProject} />
+        </li>
       ))}
-    </>
+    </ul>
   );
-}
+};
+
+export default List;
