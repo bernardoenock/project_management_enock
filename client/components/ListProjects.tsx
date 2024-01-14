@@ -1,12 +1,25 @@
 import * as React from 'react'
 import CardProject from './molecules/CardProject'
+import { getProjects } from '../api/projects';
 
-type Props = {
-  items: any[];
-};
+const ListProjects = () => {
+  const [projects, setProjects] = React.useState([]);
 
-const List = ({ items }: Props) => {
-  const [projects, setProjects] = React.useState(items);
+  React.useEffect(() => {
+    const fetch = async () => {
+      try {
+        const response = await getProjects()
+
+        setProjects(response)
+      } catch (error) {
+        console.error("Erro ao buscar Projetos:", error)
+      }
+    }
+
+    fetch()
+  }, [])
+
+
 
   const handleDeleteProject = (projectId: string) => {
     setProjects((prevProjects) => prevProjects.filter((project) => project.id !== projectId));
@@ -23,4 +36,4 @@ const List = ({ items }: Props) => {
   );
 };
 
-export default List;
+export default ListProjects;
