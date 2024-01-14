@@ -8,7 +8,7 @@ const port = 4242;
 
 const pool = new Pool({
   user: 'enock',
-  host: 'localhost',
+  host: 'postgres',
   database: 'dysrupbd',
   password: '123interview',
   port: 5432,
