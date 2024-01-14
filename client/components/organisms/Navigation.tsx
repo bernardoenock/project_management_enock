@@ -1,8 +1,13 @@
 import { Box, AppBar, IconButton, Typography, Button, Toolbar } from "@mui/material"
 import MenuIcon from '@mui/icons-material/Menu';
-import Link from "next/link";
+import LinkApp from "../atoms/LinkApp";
+import CreateProject from "./CreateProject";
+import { useRouter } from "next/router";
+import CreateTask from "./CreateTask";
 
 const Navigation = () => {
+  const router = useRouter();
+  const { id } = router.query;
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -17,13 +22,23 @@ const Navigation = () => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
-          <Link href="/">Home</Link>
-        </Typography>
-        <Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
-          <Link href="/dashboard">Dashboard</Link>
-        </Typography>
-        <Button color="inherit">Criar Projeto</Button>
+        <Box
+          sx={{
+            display: 'none',
+            '@media (min-width:600px)': {
+              display: 'flex',
+            },
+
+          }}
+        >
+          <Button color="inherit">
+            <LinkApp href="/" color='white'>Home</LinkApp>
+          </Button>
+          <Button color="inherit">
+            <LinkApp href="/dashboard" color='white'>Dashboard</LinkApp>
+          </Button>
+        </Box>
+        {id ? <CreateTask productId={id}/> : <CreateProject />}
       </Toolbar>
     </AppBar>
   </Box>
