@@ -5,6 +5,11 @@ import { Checkbox, Box, Typography, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import dayjs from 'dayjs';
 import UpdateTask from '../organisms/UpdateTask';
+import Title from '../atoms/contents/Title';
+import Description from '../atoms/contents/Description';
+import StartDate from '../atoms/contents/StartDate';
+import BtnDelete from '../atoms/buttons/BtnDelete';
+import WrapperTask from '../atoms/wrappers/WrapperTask';
 
 type Props = {
   task: any
@@ -18,7 +23,6 @@ const CardTask = ({onDelete, projectId, task}: Props) => {
 
   const handleCompletedTask = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
-
     const completedTask = async () => {
       const taskCompleted = task
       taskCompleted.completed = event.target.checked
@@ -30,7 +34,6 @@ const CardTask = ({onDelete, projectId, task}: Props) => {
         console.error('Erro ao excluir projeto:', error);
       }
     };
-
     completedTask()
   };
 
@@ -46,38 +49,18 @@ const CardTask = ({onDelete, projectId, task}: Props) => {
   };
 
   return (
-    <Box
-    sx={{
-      boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
-      width: '20rem',
-      height: '100%',
-      m: 2,
-      borderRadius: '8px',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-    }}
-    >
-      <Typography variant="h6" textAlign={"center"} sx={{backgroundColor: "#dfff00"}}>{task.name}</Typography>
-      <Typography variant="body1" sx={{width: '100%', height: '100%'}}>Descrição: {task.description}</Typography>
-      <Typography variant="body1">Data Inicial: {dayjs(task.startdate).format('DD/MM/YYYY')}</Typography>
+    <WrapperTask>
+      <Title>{task.name}</Title>
+      <Description>Descrição: {task.description}</Description>
+      <StartDate>Data Inicial: {dayjs(task.startdate).format('DD/MM/YYYY')}</StartDate>
       <Checkbox
         checked={checked}
         onChange={handleCompletedTask}
         inputProps={{ 'aria-label': 'controlled' }}
       />
       <UpdateTask projectId={projectId} taskId={task.id}/>
-
-      <Button
-        variant="contained"
-        color="error"
-        startIcon={<DeleteIcon />}
-        onClick={handleDeleteTask}
-      >
-        Excluir Tarefa
-      </Button>
-    </Box>
-
+      <BtnDelete handleDelete={handleDeleteTask}/>
+    </WrapperTask>
   )
 }
 
