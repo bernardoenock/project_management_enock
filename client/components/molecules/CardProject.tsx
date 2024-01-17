@@ -1,10 +1,14 @@
-import { Box, Typography, Button } from "@mui/material"
 import { ProjectObj } from "../../api/interfaces"
-import DeleteIcon from '@mui/icons-material/Delete';
-import LaunchIcon from '@mui/icons-material/Launch';
 import { deleteProject } from "../../api/projects";
-import LinkApp from "../atoms/LinkApp";
+
 import dayjs from "dayjs";
+import Title from "../atoms/contents/Title";
+import Description from "../atoms/contents/Description";
+import StartDate from "../atoms/contents/StartDate";
+import ListTasks from "../atoms/contents/ListTasks";
+import BtnOpenProject from "../atoms/buttons/BtnOpenProject";
+import BtnDelete from "../atoms/buttons/BtnDelete";
+import WrapperProject from "../atoms/wrappers/WrapperProject";
 
 type Props = {
   project: ProjectObj;
@@ -26,52 +30,16 @@ const CardProject = ({project, onDelete}: Props) => {
   };
 
   return (
-    <Box
-    sx={{
-      boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
-      width: '20rem',
-      m: 2,
-      borderRadius: '8px',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-    }}
-    >
-      <Typography variant="h6" textAlign={"center"} sx={{backgroundColor: "#dfff00"}}>{project.name}</Typography>
-      <Typography variant="body1">Descrição: {project.description}</Typography>
-      <Typography variant="body1">Data Inicial: {dayjs(project.startdate).format('DD/MM/YYYY')}</Typography>
-
+    <WrapperProject>
+      <Title>{project.name}</Title>
+      <Description>{project.description}</Description>
+      <StartDate>{dayjs(project.startdate).format('DD/MM/YYYY')}</StartDate>
       {project.tasks && 
-      <>
-      <ul>
-        {project.tasks.map((task) => (
-          <li key={task.id}>{task.name}</li>
-        ))}
-      </ul>
-      </>
+      <ListTasks tasks={project.tasks} />
       }
-
-      <Button
-        variant="contained"
-        color="success"
-        startIcon={<LaunchIcon />}
-      >
-      <LinkApp href="/dashboard/[id]" as={`/dashboard/${project.id}`} color="white">
-        Abrir
-      </LinkApp>
-      </Button>
-
-      <Button
-        variant="contained"
-        color="error"
-        startIcon={<DeleteIcon />}
-        onClick={handleDeleteProject}
-      >
-        Excluir Projeto
-      </Button>
-
-    
-    </Box>
+      <BtnOpenProject projectId={project.id} />
+      <BtnDelete handleDelete={handleDeleteProject} />
+    </WrapperProject>
   )
 }
 
