@@ -1,6 +1,6 @@
-import { Box, AppBar, IconButton, Typography, Button, Toolbar } from "@mui/material"
+import { Box, AppBar, IconButton, Button, Toolbar } from "@mui/material"
 import MenuIcon from '@mui/icons-material/Menu';
-import LinkApp from "../atoms/LinkApp";
+import LinkApp from "../atoms/contents/LinkApp";
 import CreateProject from "./CreateProject";
 import { useRouter } from "next/router";
 import CreateTask from "./CreateTask";
