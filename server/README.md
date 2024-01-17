@@ -1,4 +1,4 @@
-This server made with node and express
+This server made with [node](https://nodejs.org/en) and [express](https://expressjs.com/pt-br/)
 
 ## Started Local
 
@@ -26,15 +26,13 @@ pnpm start
 bun start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
 ## Data and Deploy view
 
-This project have a Client, if you wants just look check this link:
+This project have a Client
 
 If you wants to run local, run the Server with the [Client](../client) too.
 
-You can run, with single cmd: `npm start`
+You can run, with single cmd: `npm run start`
 
 [Check](../)
 

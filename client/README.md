@@ -30,7 +30,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Data and Deploy view
 
-This project have a Server, if you wants just look check this link:
+This project have a Server.
 
 If you wants to run local, run the [Server](../server) too.
 

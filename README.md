@@ -15,10 +15,6 @@ npm run start
 yarn start
 ```
 
-## Just view client:
-
-LINK**
-
 # Prerequisites
 
 ## Test Description:
