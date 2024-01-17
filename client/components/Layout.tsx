@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import { ThemeMUI } from '../style'
 import Navigation from './organisms/Navigation'
-import LinkApp from './atoms/LinkApp'
+import LinkApp from './atoms/contents/LinkApp'
 
 type Props = {
   children?: ReactNode
