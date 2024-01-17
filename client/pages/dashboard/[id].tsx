@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 
 import Layout from '../../components/Layout'
-import DetailProject from '../../components/DetailProject'
+import DetailProject from '../../components/templates/DetailProject'
 import { getOneProject, getProjects } from '../../api/projects'
 
 type Props = {
